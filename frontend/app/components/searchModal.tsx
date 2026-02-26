@@ -16,20 +16,26 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
 
     useEffect(() => {
-        const handleSearch = async () => {
-            try {
-                const response = await axios.get(`http://app:8000/api/product/?search=${searchParam}`);
-                if (response.status == 200) {
-                    setResults(response.data)
-                } else {
-                    console.log(response.data)
-                }
-            } catch {
-                console.log(response.data)
+    const handleSearch = async () => {
+        try {
+            const response = await axios.get(`http://app:8000/api/product/?search=${searchParam}`);
+            if (response.status === 200) {
+                setResults(response.data);
+            } else {
+                console.log(response.data);
+            }
+        } catch (error: any) {
+            // Axios errors store the response here
+            if (error.response) {
+                console.log(error.response.data);
+            } else {
+                console.log(error.message);
             }
         }
-        handleSearch()
-    }, [searchParam]);
+    };
+
+    handleSearch();
+}, [searchParam]);
     return (
         <Modal
             onClose={onClose}
