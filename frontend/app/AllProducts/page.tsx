@@ -21,7 +21,7 @@ export default function Products() {
         const loadProducts = async () => {
             try {
                 const response = await axios.get(
-                    "http://127.0.0.1:8000/api/product/",
+                    "http://app:8000/api/product/",
                 );
                 if (response.status == 200) {
                     setProducts(response.data);
@@ -37,7 +37,7 @@ export default function Products() {
         const loadCategories = async () => {
             try {
                 const response = await axios.get(
-                    "http://127.0.0.1:8000/api/product/categories/",
+                    "http://app:8000/api/product/categories/",
                 );
                 if (response.status == 200) {
                     setCategories(response.data)
@@ -109,9 +109,9 @@ export default function Products() {
                         className="space-y-6 overflow-hidden rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800"
                     >
                         <Link  href={`/products/${product.id}`} className="overflow-hidden rounded">
-                            
+
                                 <img className="mx-auto size-44 img-fluid object-cover" src={product.images[0].image} alt={product.name} />
-                            
+
 
                         </Link>
                         <div>

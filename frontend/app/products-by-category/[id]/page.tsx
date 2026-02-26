@@ -21,7 +21,7 @@ export default function Products() {
         const loadCategory = async () => {
             try {
                 const response = await axios.get(
-                    `http://127.0.0.1:8000/api/product/categories/${id}`,
+                    `http://app:8000/api/product/categories/${id}`,
                 );
                 if (response.status == 200) {
                     setCategory(response.data);
@@ -36,7 +36,7 @@ export default function Products() {
             setLoading(true);
             try {
                 const response = await axios.get(
-                    `http://127.0.0.1:8000/api/product/?category_id=${id}`,
+                    `http://app:8000/api/product/?category_id=${id}`,
                 );
                 if (response.status == 200) {
                     setProducts(response.data);
@@ -52,7 +52,7 @@ export default function Products() {
         };
         loadCategory()
         loadProducts();
-    }, []);                                                                             
+    }, []);
 
 
     return (
@@ -92,7 +92,7 @@ export default function Products() {
                                     alt={product.name}
                                 />
                             </Link>
-                            
+
                             {/* Content Section - Flexible */}
                             <div className="flex flex-col flex-grow">
                                 {/* Product Name and Rating */}
@@ -118,12 +118,12 @@ export default function Products() {
                                         ))}
                                     </div>
                                 </div>
-                                
+
                                 {/* Description - Takes available space */}
                                 <p className="text-base font-normal text-gray-500 dark:text-gray-400 flex-grow line-clamp-3 mb-4">
                                     {product.description}
                                 </p>
-                                
+
                                 {/* Price Section - Fixed at bottom */}
                                 <div className="mt-auto">
                                     <div className="mb-4">
@@ -134,7 +134,7 @@ export default function Products() {
                                             ${product.new_price}
                                         </p>
                                     </div>
-                                    
+
                                     {/* Add to Cart Button */}
                                     <div className="flex items-center gap-2.5">
                                         <button

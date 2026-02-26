@@ -17,7 +17,7 @@ export default function Bestsellers() {
         const loadProducts = async () => {
             try {
                 const response = await axios.get(
-                    "http://127.0.0.1:8000/api/product/bestsellers/",
+                    "http://app:8000/api/product/bestsellers/",
                 );
                 if (response.status == 200) {
                     setProducts(response.data);
