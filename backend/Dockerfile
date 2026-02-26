@@ -26,6 +26,7 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+RUN mkdir -p /vol/web/static && chmod -R 777 /vol/web
 
 EXPOSE 8000
 
