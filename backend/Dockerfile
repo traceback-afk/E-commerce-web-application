@@ -26,9 +26,6 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN useradd -m django-user
-
-USER django-user
 
 EXPOSE 8000
 
