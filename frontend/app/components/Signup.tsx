@@ -53,7 +53,7 @@ export default function Signup({ isOpen, onClose, switchToLogin }: SignupProps) 
         }
         try {
             setLoading(true);
-            const response = await axios.post("http://127.0.0.1:8000/api/user/create/", requestBody);
+            const response = await axios.post("/api/user/create/", requestBody);
             if (response.status == 201) {
                 setLoading(false)
                 onClose();

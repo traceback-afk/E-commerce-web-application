@@ -18,7 +18,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     useEffect(() => {
     const handleSearch = async () => {
         try {
-            const response = await axios.get(`http://127.0.0.1:8000/api/product/?search=${searchParam}`);
+            const response = await axios.get(`/api/product/?search=${searchParam}`);
             if (response.status === 200) {
                 setResults(response.data);
             } else {

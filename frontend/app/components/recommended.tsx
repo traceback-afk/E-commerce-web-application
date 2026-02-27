@@ -17,7 +17,7 @@ export default function Recommended({ product_id }) {
     const loadProducts = async () => {
       try {
         const response = await axios.get(
-          `http://127.0.0.1:8000/api/product/recommendations/${product_id}/`,
+          `/api/product/recommendations/${product_id}/`,
         );
         if (response.status == 200) {
           setProducts(response.data);

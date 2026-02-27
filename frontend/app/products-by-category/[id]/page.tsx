@@ -21,7 +21,7 @@ export default function Products() {
         const loadCategory = async () => {
             try {
                 const response = await axios.get(
-                    `http://127.0.0.1:8000/api/product/categories/${id}`,
+                    `/api/product/categories/${id}`,
                 );
                 if (response.status == 200) {
                     setCategory(response.data);
@@ -36,7 +36,7 @@ export default function Products() {
             setLoading(true);
             try {
                 const response = await axios.get(
-                    `http://127.0.0.1:8000/api/product/?category_id=${id}`,
+                    `/api/product/?category_id=${id}`,
                 );
                 if (response.status == 200) {
                     setProducts(response.data);

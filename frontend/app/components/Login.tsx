@@ -22,7 +22,7 @@ export default function Login({ isOpen, onClose, switchToSignup }: LoginProps) {
         setLoginError(null);
 
         try {
-            const response = await axios.post('http://127.0.0.1:8000/api/user/token/', {
+            const response = await axios.post('/api/user/token/', {
                 email,
                 password,
             });
