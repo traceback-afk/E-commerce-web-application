@@ -70,70 +70,74 @@ export default function Bestsellers() {
                 </div>
             </div>
 
-            <div className="mt-4 flex space-x-4 overflow-x-hidden p-2 px-3 flex-wrap">
-                {products
-                    .slice(currentIndex, currentIndex + itemsPerPage)
-                    .map((product) => (
-                        <div
-                            key={product.id}
-                            className="flex-1 space-y-4 overflow-hidden rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800"
-                        >
-                            <Link href={`/products/${product.id}`} className="overflow-hidden rounded">
+            <div className="mt-4 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-2 px-3">
+  {products
+    .slice(currentIndex, currentIndex + itemsPerPage)
+    .map((product) => (
+      <div
+        key={product.id}
+        className="space-y-4 overflow-hidden rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800"
+      >
+        <Link href={`/products/${product.id}`} className="overflow-hidden rounded">
+          <img
+            className="mx-auto h-48 w-full dark:hidden object-contain"
+            src={product.images[0].image}
+            alt={product.name}
+          />
+          <img
+            className="mx-auto hidden h-48 w-full dark:block object-contain"
+            src={product.images[0].image}
+            alt={product.title}
+          />
+        </Link>
 
-                                <img
-                                    className="mx-auto h-48 w-96 dark:hidden object-contain"
-                                    src={product.images[0].image}
-                                    alt={product.name}
-                                />
-                                <img
-                                    className="mx-auto hidden h-48 w-96 dark:block object-contain"
-                                    src={product.images[0].image}
-                                    alt={product.title}
-                                />
-                            </Link>
-                            <div>
-                                <Link
-                                     href={`/products/${product.id}`}
-                                    className="text-sm font-semibold leading-tight text-gray-900 hover:underline dark:text-white"
-                                >
-                                    {product.name}
-                                </Link>
-                                <p>
-                                    {Array.from({ length: product.score }, (_, i) => (
-                                        <i key={`filled-${i}`} className="bi bi-star-fill me-1 text-orange-500 text-sm"></i>
-                                    ))}
-                                    {Array.from({ length: 5 - product.score }, (_, i) => (
-                                        <i key={`empty-${i}`} className="bi bi-star me-1 text-gray-400 text-sm"></i>
-                                    ))}
-                                </p>
-                                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
-                                    {product.description}
-                                </p>
-                            </div>
-                            <div>
-                                <p className="text-sm font-bold text-gray-900 dark:text-white">
-                                    <span className="line-through">
-                                        ${product.old_price}
-                                    </span>
-                                </p>
-                                <p className="text-md font-bold leading-tight text-red-600 dark:text-red-500">
-                                    ${product.new_price}
-                                </p>
-                            </div>
-                            <div className="mt-4 flex items-center gap-2.5">
-                                {/* <Tooltip content="Add to favourites">
-                                    <button className="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white p-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700">
-                                        <Heart className="size-5" />
-                                    </button>
-                                </Tooltip> */}
-                                <button onClick={() => addToCart(product)} className="inline-flex w-full items-center justify-center rounded-lg bg-primary-700 px-4 py-2 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                                    <CartPlus className="-ms-2 me-2 size-5" />
-                                    Add to cart
-                                </button>
-                            </div>
-                        </div>
-                    ))}
-            </div>
+        <div>
+          <Link
+            href={`/products/${product.id}`}
+            className="text-sm font-semibold leading-tight text-gray-900 hover:underline dark:text-white"
+          >
+            {product.name}
+          </Link>
+          <p>
+            {Array.from({ length: product.score }, (_, i) => (
+              <i
+                key={`filled-${i}`}
+                className="bi bi-star-fill me-1 text-orange-500 text-sm"
+              ></i>
+            ))}
+            {Array.from({ length: 5 - product.score }, (_, i) => (
+              <i
+                key={`empty-${i}`}
+                className="bi bi-star me-1 text-gray-400 text-sm"
+              ></i>
+            ))}
+          </p>
+          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+            {product.description}
+          </p>
+        </div>
+
+        <div>
+          <p className="text-sm font-bold text-gray-900 dark:text-white">
+            <span className="line-through">${product.old_price}</span>
+          </p>
+          <p className="text-md font-bold leading-tight text-red-600 dark:text-red-500">
+            ${product.new_price}
+          </p>
+        </div>
+
+        <div className="mt-4 flex items-center gap-2.5">
+          <button
+            onClick={() => addToCart(product)}
+            className="inline-flex w-full items-center justify-center rounded-lg bg-primary-700 px-4 py-2 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+          >
+            <CartPlus className="-ms-2 me-2 size-5" />
+            Add to cart
+          </button>
+        </div>
+      </div>
+    ))}
+</div>
         </div>
     );
 }
