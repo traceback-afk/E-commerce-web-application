@@ -70,7 +70,7 @@ export default function Bestsellers() {
                 </div>
             </div>
 
-            <div className="mt-4 flex space-x-4 overflow-x-hidden p-2 px-3">
+            <div className="mt-4 flex space-x-4 overflow-x-hidden p-2 px-3 flex-wrap">
                 {products
                     .slice(currentIndex, currentIndex + itemsPerPage)
                     .map((product) => (
