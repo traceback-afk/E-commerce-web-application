@@ -21,7 +21,7 @@ export default function Products() {
         const loadProducts = async () => {
             try {
                 const response = await axios.get(
-                    "http://app:8000/api/product/",
+                    "http://127.0.0.1:8000/api/product/",
                 );
                 if (response.status == 200) {
                     setProducts(response.data);
@@ -37,7 +37,7 @@ export default function Products() {
         const loadCategories = async () => {
             try {
                 const response = await axios.get(
-                    "http://app:8000/api/product/categories/",
+                    "http://127.0.0.1:8000/api/product/categories/",
                 );
                 if (response.status == 200) {
                     setCategories(response.data)

@@ -42,7 +42,7 @@ export default function Checkout() {
                 purchase_items: purchase_items
             };
             const response = await axios.post(
-                "http://app:8000/api/shop/purchases/", requestBody,
+                "http://127.0.0.1:8000/api/shop/purchases/", requestBody,
                 {
                     headers: {
                         Authorization: `Token ${token}`,
@@ -70,7 +70,7 @@ export default function Checkout() {
             try {
                 const token = localStorage.getItem('token')
                 const response = await axios.get(
-                    "http://app:8000/api/user/me/",
+                    "http://127.0.0.1:8000/api/user/me/",
                     {
                         headers: {
                             Authorization: `Token ${token}`,

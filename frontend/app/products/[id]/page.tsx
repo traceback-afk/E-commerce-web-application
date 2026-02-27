@@ -20,7 +20,7 @@ export default function ProductDetailsPage() {
 
   useEffect(() => {
     const fetchProduct = async () => {
-      const res = await axios.get(`http://app:8000/api/product/${id}/`);
+      const res = await axios.get(`http://127.0.0.1:8000/api/product/${id}/`);
       if (res.status == 200) {
         setProduct(res.data);
       } else {

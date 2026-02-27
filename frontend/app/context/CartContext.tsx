@@ -16,6 +16,7 @@ interface Product {
 }
 
 interface CartItem {
+  id: number
   item: Product;
   quantity: number;
 }

@@ -19,7 +19,7 @@ export default function Orders() {
       try {
         setLoading(true);
         const token = localStorage.getItem("token");
-        const response = await axios.get("http://app:8000/api/shop/purchases/", {
+        const response = await axios.get("http://127.0.0.1:8000/api/shop/purchases/", {
           headers: {
             Authorization: `Token ${token}`,
           },

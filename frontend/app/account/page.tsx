@@ -18,7 +18,7 @@ export default function Account() {
     const fetchAccount = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://app:8000/api/user/me/", {
+        const response = await axios.get("http://127.0.0.1:8000/api/user/me/", {
           headers: {
             Authorization: `Token ${token}`,
           },

@@ -26,10 +26,14 @@ SECRET_KEY = "django-insecure-=ggwcpnc0xe)pd=oh^i)*ad-d$p*fav1jgqnd&b&+$jo68g45j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["weebz.website", "app", "89.167.87.23", "www.weebz.website"]
+ALLOWED_HOSTS = ["weebz.website", "app", "89.167.87.23", "www.weebz.website", "127.0.0.1"]
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-CSRF_TRUSTED_ORIGINS = ["https://weebz.website"]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://weebz.website",
+    "https://www.weebz.website",
+]
 
 
 # Application definition

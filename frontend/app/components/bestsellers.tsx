@@ -6,6 +6,8 @@ import { Heart, ArrowRight, ArrowLeft } from "lucide-react";
 import axios from "axios";
 import { useCart } from "../context/CartContext";
 import Link from "next/link";
+import type {Product} from "@/app/types/Product"
+
 
 export default function Bestsellers() {
     const [products, setProducts] = useState<any[]>([]);
@@ -16,8 +18,8 @@ export default function Bestsellers() {
     useEffect(() => {
         const loadProducts = async () => {
             try {
-                const response = await axios.get(
-                    "http://app:8000/api/product/bestsellers/",
+                const response = await axios.get<Product[]>(
+                    "http://127.0.0.1:8000/api/product/bestsellers/",
                 );
                 if (response.status == 200) {
                     setProducts(response.data);
